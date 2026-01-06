@@ -30,24 +30,23 @@ namespace BottlePos
                 {
                     try
                     {
-                       /* if (current.StoreSettings.StoreId == 12726)
+                        /*if (current.StoreSettings.StoreId == 12846)
                         { }
                         else { continue; }*/
                         Console.WriteLine("Generating for: " + current.StoreSettings.StoreId);
-                            var data = GetData(current.StoreSettings.StoreId, current.StoreSettings.POSSettings.Username, current.StoreSettings.POSSettings.Password, current.StoreSettings.POSSettings.AuthUrl, current.StoreSettings.POSSettings.ItemUrl, current.StoreSettings.POSSettings.FtpUserName, current.StoreSettings.POSSettings.FtpPassword);
-                            var jObj = (JObject.Parse(data)["data"]);
-                            Dictionary<object, object> dictObj = jObj.ToObject<Dictionary<object, object>>();
-                            var itemsObj = dictObj.ToList().Select(s => s.Value).ToList();
-                            var itemList = new List<Item>();
-                            foreach (var item in itemsObj)
-                            {
-                                var json = item.ToString();
-                                itemList.Add(JsonConvert.DeserializeObject<Item>(json));
-                            }
-                            Console.WriteLine("Generating CSV file : " + current.StoreSettings.StoreId);
-                            BottleposcsvConverter(itemList, current.StoreSettings.StoreId, current.StoreSettings.POSSettings.tax, current.StoreSettings.POSSettings.FtpUserName, current.StoreSettings.POSSettings.FtpPassword);
-                            Console.WriteLine();
-                        
+                        var data = GetData(current.StoreSettings.StoreId, current.StoreSettings.POSSettings.Username, current.StoreSettings.POSSettings.Password, current.StoreSettings.POSSettings.AuthUrl, current.StoreSettings.POSSettings.ItemUrl, current.StoreSettings.POSSettings.FtpUserName, current.StoreSettings.POSSettings.FtpPassword);
+                        var jObj = (JObject.Parse(data)["data"]);
+                        Dictionary<object, object> dictObj = jObj.ToObject<Dictionary<object, object>>();
+                        var itemsObj = dictObj.ToList().Select(s => s.Value).ToList();
+                        var itemList = new List<Item>();
+                        foreach (var item in itemsObj)
+                        {
+                            var json = item.ToString();
+                            itemList.Add(JsonConvert.DeserializeObject<Item>(json));
+                        }
+                        Console.WriteLine("Generating CSV file : " + current.StoreSettings.StoreId);
+                        BottleposcsvConverter(itemList, current.StoreSettings.StoreId, current.StoreSettings.POSSettings.tax, current.StoreSettings.POSSettings.FtpUserName, current.StoreSettings.POSSettings.FtpPassword);
+                        Console.WriteLine();
                     }
                     catch (Exception ex)
                     {

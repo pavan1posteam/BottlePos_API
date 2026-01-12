@@ -12,6 +12,7 @@ namespace BottlePos
 
         public static void GenerateCSVFiles<T>(IList<T> list, string Name, int StoreId, string BaseUrl,string FtpUserName,string FtpPassword)
         {
+            
 
             // if (list == null || list.Count == 0) return "Quantity and Price are 0 or less than 0";
             if (!Directory.Exists(BaseUrl + "\\" + StoreId + "\\Upload\\"))

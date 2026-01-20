@@ -30,9 +30,9 @@ namespace BottlePos
                 {
                     try
                     {
-                       /*if (current.StoreSettings.StoreId == 12864)
-                       { Console.WriteLine("Fetching_storeid__ " + current.StoreSettings.StoreId);}
-                        else { continue; }*/ 
+                        /*if (current.StoreSettings.StoreId == 12345)
+                        { Console.WriteLine("Fetching_storeid__ " + current.StoreSettings.StoreId);}
+                         else { continue; }*/
                         Console.WriteLine("Generating for: " + current.StoreSettings.StoreId);
                         var data = GetData(current.StoreSettings.StoreId, current.StoreSettings.POSSettings.Username, current.StoreSettings.POSSettings.Password, current.StoreSettings.POSSettings.AuthUrl, current.StoreSettings.POSSettings.ItemUrl, current.StoreSettings.POSSettings.FtpUserName, current.StoreSettings.POSSettings.FtpPassword);
                         var jObj = (JObject.Parse(data)["data"]);

@@ -30,7 +30,7 @@ namespace BottlePos
                 {
                     try
                     {
-                        /*if (current.StoreSettings.StoreId == 12867)
+                       /* if (current.StoreSettings.StoreId == 12405 || current.StoreSettings.StoreId == 12470 )
                         { Console.WriteLine("Fetching_storeid__ " + current.StoreSettings.StoreId);}
                          else { continue; }*/
                         Console.WriteLine("Generating for: " + current.StoreSettings.StoreId);
